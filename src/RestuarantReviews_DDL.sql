@@ -49,10 +49,9 @@ CREATE TABLE IF NOT EXISTS `RestuarantReviews`.`business` (
   `Email` VARCHAR(45) NULL,
   `OverallRating` INT NULL,
   `PriceRating` INT NULL,
-  `FoodType` VARCHAR(45) NULL,
   `PhotosFileName` VARCHAR(45) NULL,
   `HoursOfOperation` VARCHAR(45) NULL,
-  `User_ID` INT NOT NULL,
+  `User_ID` INT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_business_user1_idx` (`User_ID` ASC) VISIBLE,
   CONSTRAINT `fk_business_user1`
@@ -129,3 +128,37 @@ VALUES (2, 'JaneDoe123', 'password', 'janeDoe123@gmail.com', 'Doe', 'Jane', 'Con
 
 INSERT INTO user (ID, UserName, Password, Email, LastName, FirstName, RoleName, AccountVerified)
 VALUES (3, 'JohnDoe456', 'password', 'johnDoe456@gmail.com', 'Doe', 'John', 'Contributor', 1);
+
+
+
+-- -----------------------------------------------------
+-- Insert same data into business table. 
+-- -----------------------------------------------------
+INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, OverallRating, PriceRating, HoursOfOperation)
+VALUES(1, 'Bar and Grill', '123 Fake Street Ottawa ON', 'Bar and Grill Description', '613-123-4567', 'BarAndGrill@gmail.com', 4, 2, '11:00AM - 11:OOPM');
+
+INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, OverallRating, PriceRating, HoursOfOperation)
+VALUES(2, 'The Greasy Spoon', '453 Made Up Cresent, Ottawa ON', 'The Greasy Spoon Description', '613-123-8912', 'GreasySppon@gmail.com', 5, 1, '6:00AM - 6:OOPM');
+
+INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, OverallRating, PriceRating, HoursOfOperation)
+VALUES(3, 'Irish Pub', '789 Fake Street, Ottawa ON', 'Irish Pub Description', '613-123-3456', 'IrishPub@gmail.com', 3, 1, '11:00AM - 1:OOAM');
+
+INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, OverallRating, PriceRating, HoursOfOperation)
+VALUES(4, 'café', '124 Le Fake Rue, Ottawa ON', 'café Description', '613-123-7891', 'café@gmail.com', 5, 4, '7:00AM - 7:OOPM');
+
+INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, OverallRating, PriceRating, HoursOfOperation)
+VALUES(5, 'Biergarten', '456 Beer Garden Way, Ottawa ON', 'Biergarten Description', '613-123-2198', 'Biergarten@gmail.com', 4, 2, '11:00AM - 1:OOAM');
+
+INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, OverallRating, PriceRating, HoursOfOperation)
+VALUES(6, 'Dive Bar', '146 Back Alley Street, Ottawa ON', 'Dive Bar Description', '613-123-7654', 'Dive Bar@gmail.com', 2, 1, '1:00PM - 1:OOAM');
+
+
+
+
+
+
+
+
+
+
+
