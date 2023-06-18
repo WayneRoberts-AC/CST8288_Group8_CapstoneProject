@@ -91,6 +91,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `RestuarantReviews`.`foodType` (
   `ID` INT NOT NULL,
+  `foodType` VARCHAR(45) NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
@@ -118,7 +119,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Insert same data into users table. 
+-- Insert sample data into users table. 
 -- -----------------------------------------------------
 INSERT INTO user (ID, UserName, Password, Email, LastName, FirstName, RoleName, AccountVerified)
 VALUES (1, 'Admin', 'admin', 'admin@gmail.com', '', '', 'Admin', 1);
@@ -132,7 +133,7 @@ VALUES (3, 'JohnDoe456', 'password', 'johnDoe456@gmail.com', 'Doe', 'John', 'Con
 
 
 -- -----------------------------------------------------
--- Insert same data into business table. 
+-- Insert sample data into business table. 
 -- -----------------------------------------------------
 INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, OverallRating, PriceRating, HoursOfOperation)
 VALUES(1, 'Bar and Grill', '123 Fake Street Ottawa ON', 'Bar and Grill Description', '613-123-4567', 'BarAndGrill@gmail.com', 4, 2, '11:00AM - 11:OOPM');
@@ -153,9 +154,47 @@ INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, Overal
 VALUES(6, 'Dive Bar', '146 Back Alley Street, Ottawa ON', 'Dive Bar Description', '613-123-7654', 'Dive Bar@gmail.com', 2, 1, '1:00PM - 1:OOAM');
 
 
+-- -----------------------------------------------------
+-- Insert sample data into foodType table. 
+-- -----------------------------------------------------
+INSERT INTO foodType(ID, foodType)
+VALUES(1, "Barbecue");
 
+INSERT INTO foodType(ID, foodType)
+VALUES(2, "Breakfast");
 
+INSERT INTO foodType(ID, foodType)
+VALUES(3, "Irish Pub");
 
+INSERT INTO foodType(ID, foodType)
+VALUES(4, "French");
+
+INSERT INTO foodType(ID, foodType)
+VALUES(5, "German");
+
+INSERT INTO foodType(ID, foodType)
+VALUES(6, "Bar");
+
+----------------------------------
+-- Insert sample data into business_foodtype table. 
+-- -----------------------------------------------------
+INSERT INTO business_foodtype (foodType_ID, business_ID)
+VALUES(1, 1);
+
+INSERT INTO business_foodtype (foodType_ID, business_ID)
+VALUES(2, 2);
+
+INSERT INTO business_foodtype (foodType_ID, business_ID)
+VALUES(3, 3);
+
+INSERT INTO business_foodtype (foodType_ID, business_ID)
+VALUES(4, 4);
+
+INSERT INTO business_foodtype (foodType_ID, business_ID)
+VALUES(5, 5);
+
+INSERT INTO business_foodtype (foodType_ID, business_ID)
+VALUES(6, 6);
 
 
 
