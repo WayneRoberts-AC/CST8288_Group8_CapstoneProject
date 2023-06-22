@@ -14,7 +14,7 @@
   
 	<servlet>
 		<servlet-name>HomeTest</servlet-name>
-		<servlet-class>servlets.HomeTest</servlet-class>
+		<servlet-class>main.java.servlets.HomeTest</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
