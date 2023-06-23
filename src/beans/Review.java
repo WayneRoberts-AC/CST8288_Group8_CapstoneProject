@@ -25,12 +25,18 @@ public class Review {
 	
 	private Date creationDate;
 	private int helpfulCount;
+	private final int MIN_HELPFUL_COUNT = 0;
 	
 	/**
 	 * Constructs a new review
 	 */
 	public Review() {
 		helpfulCount = 0;
+		priceRating = new Rating();
+		overallRating = new Rating();
+		foodRating = new Rating();
+		serviceRating = new Rating();
+		atmosphereRating = new Rating();
 	}
 	
 	/**
@@ -73,6 +79,7 @@ public class Review {
 	public void setFoodRating (int rating) {
 		
 		foodRating.setRating(rating);
+		calculateOverallRating();
 	}
 	
 	/**
@@ -82,6 +89,7 @@ public class Review {
 	public void setServiceRating (int rating) {
 		
 		serviceRating.setRating(rating);
+		calculateOverallRating();
 	}
 	
 	/**
@@ -91,6 +99,7 @@ public class Review {
 	public void setAtmosphereRating (int rating) {
 		
 		atmosphereRating.setRating(rating);
+		calculateOverallRating();
 	}
 	
 	/**
@@ -107,6 +116,23 @@ public class Review {
 	}
 	
 	/**
+	 * gets the overall rating of the review
+	 * @return the overall rating
+	 */
+	public int getOverallRating() {
+		return overallRating.getRating();
+	}
+	
+
+	/**
+	 * gets the count of users who found the review helpful
+	 * @return the the count of users who found the review helpful
+	 */
+	public int getHelpfulCount() {
+		return helpfulCount;
+	}
+	
+	/**
 	 * Increases the count of users who found the review helpful by one. 
 	 */
 	public void increaseHelpfulCount() {
@@ -118,7 +144,12 @@ public class Review {
 	 */
 	public void decreaseHelpfulCount() {
 		helpfulCount -= 1;
+		if (helpfulCount < MIN_HELPFUL_COUNT ) {
+			helpfulCount = MIN_HELPFUL_COUNT;
+		} 
 	}
+	
+	
 	
 	
 	
