@@ -134,5 +134,25 @@ class ReviewTester {
 	}
 	
 	
+	/**
+	 * Test setting a rating too high
+	 */
+	@Test
+	void testTooHighRatingValue() {
+		assertThrows(IllegalArgumentException.class, () ->testReview.setFoodRating(6));
+
+	}
+	
+	/**
+	 * Test setting a rating too low
+	 */
+	@Test
+	void testTooLowRatingValue() {
+		assertThrows(IllegalArgumentException.class, () ->testReview.setFoodRating(-1));
+
+	}
+	
+	
+	
 
 }

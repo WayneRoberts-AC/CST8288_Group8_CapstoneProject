@@ -20,9 +20,9 @@ public class Rating {
 	public void setRating(int rating) throws IllegalArgumentException{
 		
 		if (rating < MIN_RATING) {
-			throw new IllegalArgumentException("Rating value of: " + rating + "is less than the minimum value of: " + MIN_RATING);
+			throw new IllegalArgumentException("Rating value of: " + rating + " is less than the minimum value of: " + MIN_RATING);
 		} else if (rating > MAX_RATING) {
-			throw new IllegalArgumentException("Rating value of: " + rating + "is great than the maximum value of: " + MAX_RATING);
+			throw new IllegalArgumentException("Rating value of: " + rating + " is great than the maximum value of: " + MAX_RATING);
 		} else {
 			ratingValue = rating;
 		}
