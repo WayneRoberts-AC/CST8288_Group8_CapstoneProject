@@ -41,7 +41,7 @@ public class DBConnection {
 		}
 
 		if (connection != null) {
-			System.out.println("Connection made to DB!");
+			//System.out.println("Connection made to DB!");
 		}
         
 
