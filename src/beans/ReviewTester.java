@@ -18,32 +18,32 @@ class ReviewTester {
 	 * Test the increase helpful count function
 	 */
 	@Test
-	void testIncreaseHelpfulCount() {
-		testReview.increaseHelpfulCount();
-		assertEquals(1, testReview.getHelpfulCount());
+	void testIncreaseUsefulCount() {
+		testReview.increaseUsefulCount();
+		assertEquals(1, testReview.getUsefulCount());
 	}
 	
 	/**
 	 * Test the decrease helpful count function below the minimum (0)
 	 */
 	@Test
-	void testdecreaseHelpfulCount() {
-		testReview.decreaseHelpfulCount();
-		assertEquals(0, testReview.getHelpfulCount());
+	void testdecreaseUsefulCount() {
+		testReview.decreaseUsefulCount();
+		assertEquals(0, testReview.getUsefulCount());
 	}
 	
 	/**
 	 * Test both the increase and decrease helpful count functions
 	 */
 	@Test
-	void testIncreaseAndDecreaseHelpfulCount() {
-		testReview.increaseHelpfulCount();
-		testReview.increaseHelpfulCount();
-		testReview.increaseHelpfulCount();
-		testReview.decreaseHelpfulCount();
-		testReview.decreaseHelpfulCount();
-		testReview.increaseHelpfulCount();
-		assertEquals(2, testReview.getHelpfulCount());
+	void testIncreaseAndDecreaseUsefulCount() {
+		testReview.increaseUsefulCount();
+		testReview.increaseUsefulCount();
+		testReview.increaseUsefulCount();
+		testReview.decreaseUsefulCount();
+		testReview.decreaseUsefulCount();
+		testReview.increaseUsefulCount();
+		assertEquals(2, testReview.getUsefulCount());
 	}
 	
 	/**

@@ -4,6 +4,8 @@ package beans;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import dao.ReviewDao;
+
 /**
  * @author wbr
  * Describes a review of a restaurant created by a user. 
@@ -15,8 +17,8 @@ public class Review {
 	
 	private int id;
 	
-	private User author;
-	private Business business;
+	private int authorID;
+	private int businessID;
 	private String content; 
 	
 	private Rating priceRating;
@@ -26,14 +28,14 @@ public class Review {
 	private Rating atmosphereRating;
 	
 	private Date creationDate;
-	private int helpfulCount;
-	private final int MIN_HELPFUL_COUNT = 0;
+	private int usefulCount;
+	private final int MIN_USEFUL_COUNT = 0;
 	
 	/**
 	 * Constructs a new review with default values. 
 	 */
 	public Review() {
-		helpfulCount = 0;
+		usefulCount = 0;
 		priceRating = new Rating();
 		overallRating = new Rating();
 		foodRating = new Rating();
@@ -58,35 +60,35 @@ public class Review {
 	}
 	
 	/**
-	 * Sets the author for this review
-	 * @param author the author of this review
+	 * Sets the author ID for this review
+	 * @param author the ID of the author of this review
 	 */
-	public void setAuthor(User author) {
-		this.author = author;
+	public void setAuthorID(int authorID) {
+		this.authorID = authorID;
 	}
 	
 	/**
-	 * Gets the author of this review
-	 * @return the author. 
+	 * Gets the author ID of this review
+	 * @return the author ID
 	 */
-	public User getAuthor() {
-		return author;
+	public int getAuthorID() {
+		return authorID;
 	}
 	
 	/**
-	 * Sets the business that is being reviewed. 
-	 * @param business the business
+	 * Sets the business ID that is being reviewed. 
+	 * @param business the business ID
 	 */
-	public void setBusiness(Business business) {
-		this.business = business;
+	public void setBusinessID(int businessID) {
+		this.businessID = businessID;
 	}
 	
 	/**
-	 * Gets the business that is being reviewed. 
-	 * @return the business
+	 * Gets the business ID that is being reviewed. 
+	 * @return the business ID
 	 */
-	public Business getBusiness() {
-		return business;
+	public int getBusinessID() {
+		return businessID;
 	}
 	
 	/**
@@ -197,52 +199,77 @@ public class Review {
 		return overallRating.getRating();
 	}
 	
+	/**
+	 * Sets the overall rating of this review, used when reading from the database
+	 * @param rating the rating
+	 */
+	public void setOverallRating(int rating) {
+		overallRating.setRating(rating);
+	}
+	
 
 	/**
 	 * gets the count of users who found the review helpful
 	 * @return the the count of users who found the review helpful
 	 */
-	public int getHelpfulCount() {
-		return helpfulCount;
+	public int getUsefulCount() {
+		return usefulCount;
 	}
 	
 	/**
 	 * Increases the count of users who found the review helpful by one. 
 	 */
-	public void increaseHelpfulCount() {
-		helpfulCount += 1;
+	public void increaseUsefulCount() {
+		usefulCount += 1;
 	}
 	
 	/**
 	 * Decreases the count of users who found the review helpful by one. 
 	 */
-	public void decreaseHelpfulCount() {
-		helpfulCount -= 1;
-		if (helpfulCount < MIN_HELPFUL_COUNT ) {
-			helpfulCount = MIN_HELPFUL_COUNT;
+	public void decreaseUsefulCount() {
+		usefulCount -= 1;
+		if (usefulCount < MIN_USEFUL_COUNT ) {
+			usefulCount = MIN_USEFUL_COUNT;
 		} 
+	}
+	
+	/**
+	 * sets the helpfulcount for this review, used when reading from the database. 
+	 * @param count the count
+	 */
+	public void setUsefulCount(int count) {
+		usefulCount = count;
 	}
 	
 	/**
 	 * Posts this review, creates creationDate the time stamp 
 	 */
 	public void post() {
-		setCreationDate();
+		generateCreationDate();
 		
 		// TODO: Add post into Database. 
+		
 		
 		// TODO: Get post ID from Database. 
 		
 	}
 	
 	/**
-	 * sets the creation date for this post. 
+	 * generates the creation date for this review. 
 	 */
-	private void setCreationDate() {
+	private void generateCreationDate() {
 		
 		// Timestamp source https://mkyong.com/java/how-to-get-current-timestamps-in-java/
 		Date tsDate = new Date();
 		this.creationDate = new Timestamp(tsDate.getTime());	
+	}
+	
+	/**
+	 * Sets the creation date for this review, used when reading from the database. 
+	 * @param date the date
+	 */
+	public void setCreationDate(Date date) {
+		creationDate = date;
 	}
 	
 	/**
@@ -251,6 +278,24 @@ public class Review {
 	 */
 	public Date getCreationDate() {
 		return creationDate;
+	}
+	
+	/**
+	 * Prints this reviews data to the console. 
+	 */
+	public void printReviewToConsole() {
+		System.out.println("Printing Review ID " + id);
+		System.out.println("Author ID " + authorID);
+		System.out.println("Business ID " + businessID);
+		System.out.println("Content " + content);
+		System.out.println("Price rating " + priceRating.getRating());
+		System.out.println("Overall Rating " + overallRating.getRating());
+		System.out.println("food Rating " + foodRating.getRating());
+		System.out.println("serive Rating " + serviceRating.getRating());
+		System.out.println("atmostphere Rating " + atmosphereRating.getRating());
+		System.out.println("Creation Date " + creationDate);
+		System.out.println("Helpful Count " + usefulCount);
+		System.out.println();
 	}
 	
 	

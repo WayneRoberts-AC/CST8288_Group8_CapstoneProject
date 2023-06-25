@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `RestuarantReviews`.`review` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `user_ID` INT NOT NULL,
   `business_ID` INT NOT NULL,
-  `Date` DATE NULL,
+  `Date` DATETIME NULL,
   `Content` VARCHAR(250) NULL,
   `PriceRating` INT NULL,
   `OverallRating` INT NULL,
@@ -123,7 +123,7 @@ INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, Overal
 VALUES(3, 'Irish Pub', '789 Fake Street, Ottawa ON', 'Irish Pub Description', '613-123-3456', 'IrishPub@gmail.com', 3, 1, 'Irish Pub', '11:00AM - 1:OOAM');
 
 INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, OverallRating, PriceRating, FoodType, HoursOfOperation)
-VALUES(4, 'café', '124 Le Fake Rue, Ottawa ON', 'café Description', '613-123-7891', 'café@gmail.com', 5, 4, 'French', '7:00AM - 7:OOPM');
+VALUES(4, 'cafï¿½', '124 Le Fake Rue, Ottawa ON', 'cafï¿½ Description', '613-123-7891', 'cafï¿½@gmail.com', 5, 4, 'French', '7:00AM - 7:OOPM');
 
 INSERT INTO business (ID, Name, Address, Description, PhoneNumber, Email, OverallRating, PriceRating, FoodType, HoursOfOperation)
 VALUES(5, 'Biergarten', '456 Beer Garden Way, Ottawa ON', 'Biergarten Description', '613-123-2198', 'Biergarten@gmail.com', 4, 2, 'German', '11:00AM - 1:OOAM');
@@ -133,7 +133,14 @@ VALUES(6, 'Dive Bar', '146 Back Alley Street, Ottawa ON', 'Dive Bar Description'
 
 
 
+-- -----------------------------------------------------
+-- Insert sample data into review table. 
+-- -----------------------------------------------------
+INSERT INTO review (ID, user_ID, business_ID, Date, Content, PriceRating, OverallRating, FoodRating, ServiceRating, AtmosphereRating, UsefulCount)
+VALUES(1, 1, 1, NOW(), 'Good Review Content', 2, 4, 4, 4, 4, 1);
 
+INSERT INTO review (ID, user_ID, business_ID, Date, Content, PriceRating, OverallRating, FoodRating, ServiceRating, AtmosphereRating, UsefulCount)
+VALUES(2, 2, 2, NOW(), 'Great Breakfast!', 1, 5, 5, 5, 5, 2);
 
 
 
